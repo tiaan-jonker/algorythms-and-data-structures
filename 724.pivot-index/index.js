@@ -3,6 +3,9 @@
 // if the sum minus leftsum minus currNum equal to leftSum, return the index
 // minus the currNum because that will be the pivot index point
 
+// Runtime: O(n) 103ms
+// Space: O(1) 44.4MB
+
 function pivotIndex(nums) {
   const n = nums.length
   let sum = 0
