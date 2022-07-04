@@ -9,6 +9,9 @@
 // find other num where the target - currNum
 // if found return the current loop position
 
+// Runtime: O(n^2) 119ms
+// Space: 42.5MB
+
 function twoSum(nums, target) {
   const n = nums.length
   for (let i = 0; i < n; i++) {
@@ -21,17 +24,17 @@ function twoSum(nums, target) {
   return null
 }
 
-// Runtime: O(n^2) 119ms
-// Space: 42.5MB
-
 // Hashmap
 // Create hashmap
-// First loop 
+// First loop
 //    populate hashmap with arr key value pairs
 // Second loop
 //    get the other matching num that adds to target
 //    check if hashmap contains that num && its not the currently iterated num
 //    if it is return the indexes
+
+// Runtime: O(n) 124ms
+// Space: 44.6MB
 
 function twoSumAlt(nums, target) {
   const n = nums.length
@@ -51,8 +54,5 @@ function twoSumAlt(nums, target) {
 
   return null
 }
-
-// Runtime: O(n) 124ms
-// Space: 44.6MB
 
 module.exports = { twoSum, twoSumAlt }
