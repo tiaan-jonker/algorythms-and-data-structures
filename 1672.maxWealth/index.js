@@ -5,9 +5,10 @@
 // add the current accounts num to currAcc variable
 // check if the currAcc > max, if so then set max to currAcc
 
+// Runtime: O(n^2) 68ms
+// Space: 41.8MB
 
-
-function maxWealth (acc) {
+function maxWealth(acc) {
   const n = acc.length
 
   let max = 0
