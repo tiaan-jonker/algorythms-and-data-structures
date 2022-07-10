@@ -22,11 +22,11 @@ function mergeSorted(nums1, m, nums2, n) {
     count++
   }
 
-  // insertion sort 
+  // insertion sort
   // start at idx 1 so that comparison can be made with prev num
   // (m + n) can be just nums1Length (but what if its zero?)
-  for (let i = 1; i < (m + n); i++) {
-    // start at index zero and compare backwards by decrementing 
+  for (let i = 1; i < m + n; i++) {
+    // start at index zero and compare backwards by decrementing
     for (let j = i; j > 0; j--) {
       // check if curr num is less than previous number
       if (nums1[j] < nums[j - 1]) {
@@ -35,13 +35,37 @@ function mergeSorted(nums1, m, nums2, n) {
         // take previous number and insert in curr idx
         arr[j] = arr[j - 1]
         // take stored temp num and set it to the prev idx
-        arr[j - 1] = temp 
+        arr[j - 1] = temp
       }
     }
   }
 
-  return nums1 
+  return nums1
 }
 
 // Solution works for normal input, but not for edge cases
-// i.e. input of -> [2,0], 1, [1], 1 returns [2, 1] so not sorted  
+// i.e. input of -> [2,0], 1, [1], 1 returns [2, 1] so not sorted
+
+function mergeSortedAlt(nums1, m, nums2, n) {
+  // set p1 and p2 to nums passed in minus one
+  // this will 'grab' nums at end of each array
+  let p1 = m - 1
+  let p2 = n - 1
+
+  // start at end of array
+  for (let i = nums1.length - 1; i >= 0; i--) {
+    // as long as p1 && p2 is non-negative
+    if (p1 >= 0 && p2 >= 0) {
+      // starting with end of array
+      // set it equal to greater of curr idx of nums1 & nums2
+      // which ever is greater decrement that P idx
+      nums1[i] = nums1[p1] > nums2[p2] ? nums1[p1--] : nums2[p2--]
+    } else if (p1 >= 0) {
+      // if p is negative then only insert/decrement p1
+      nums1[i] = nums1[p1--]
+    } else {
+      // else do that only for p2
+      nums1[i] = nums2[p2--]
+    }
+  }
+}

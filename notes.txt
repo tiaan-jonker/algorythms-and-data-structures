@@ -1,0 +1,6 @@
+Notes: 
+
+Review 
+
+Understand 
+- 88 merge sort, not completely understanding the 'ideal' solution
